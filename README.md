@@ -14,3 +14,6 @@ Using CMake GUI on Windows, the project can be compiled following the standard c
 ## Run
 
  In Visual Studio, the project is named `fermat3d_bin`. Make sure to select this project and hit F5 on Release mode. After a while, you should see a window pop up with seperate fermat spirals constructed on a terrain mesh.
+ 
+ ### Fixing Runtime Error
+ During the construction of isolines, libigl uses a very small number to detect the duplicated vertices. If you receive a run-time error, that means you need to increase this number. You can do this by going to 'fermat3d\libigl\include\igl\isolines.cpp' and change the number in line 106. On my machine, I changed it to 2.2204e-9.  
