@@ -1,5 +1,5 @@
-#ifndef _DEF_
-#define _DEF_
+#ifndef _COMMON_
+#define _COMMON_
 
 #ifndef MIN_NUM_POINT_PER_CONTOUR
 #define MIN_NUM_POINT_PER_CONTOUR 15
@@ -26,4 +26,4 @@ T dist(T x1, T y1, T z1, T x2, T y2, T z2)
 //******************************************************************************
 
 
-#endif /*_DEF_*/
+#endif /*_COMMON_*/
