@@ -21,12 +21,12 @@ Using CMake GUI on Windows, the project can be compiled following the standard c
 
 ## Understanding the Code:
 
-Constructing of the Connected Fermat Spiral follows the steps in (Connected Fermat Spirals for Layered Fabrication)[https://www.cs.sfu.ca/~haoz/pubs/zhao_sig16_fermat.pdf]. Instead of using the offsets contours from the boundary of the input shape, we use the isolines from the height function (compute_surface_func.h). The isolines are computed using Libigl. There a set of post-processing operations that needs to be done in order to prepare the isolines to construct the Fermat Spirals. The 
+Constructing of the Connected Fermat Spiral follows the steps in [Connected Fermat Spirals for Layered Fabrication](https://www.cs.sfu.ca/~haoz/pubs/zhao_sig16_fermat.pdf). Instead of using the offsets contours from the boundary of the input shape, we use the isolines from the height function (compute_surface_func.h). The isolines are computed using Libigl. There a set of post-processing operations that needs to be done in order to prepare the isolines to construct the Fermat Spirals. The 
 post-processing of the isolines includes 
 
 - Removing zero length isolines 
 - Creating separate spirallable regions 
 
-All the operations related to isolines are implemented in isolines_ds.h and isolines_util.h. Since we are using the height function, this creates isolines with non-uniform spacing. The proper way is to compute the offset from the boundary of the input mesh based on the geodesic function as done in (DSCarver: decompose-and-spiral-carve for subtractive manufacturing)[https://www.cs.sfu.ca/~haoz/pubs/zhao_sig18_cnc.pdf] and then use this to compute the isolines. 
+All the operations related to isolines are implemented in isolines_ds.h and isolines_util.h. Since we are using the height function, this creates isolines with non-uniform spacing. The proper way is to compute the offset from the boundary of the input mesh based on the geodesic function as done in [DSCarver: decompose-and-spiral-carve for subtractive manufacturing](https://www.cs.sfu.ca/~haoz/pubs/zhao_sig18_cnc.pdf) and then use this to compute the isolines. 
 
 After computing the isolines and recognizing the spirallable regions, we are ready to construct the Fermat spiral. For each spirallable regions, we create a single spiral and then convert it to Fermat spiral (fermat3d_imp.h).
